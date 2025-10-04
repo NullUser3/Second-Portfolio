@@ -1,16 +1,24 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+
+ import localFont from "next/font/local";
+
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+    const Normal = localFont({
+      src: "fonts/FOT-Rodin Pro M/FOT-Rodin Pro M.otf", // Path relative to the file where localFont is called
+      display: "swap", // Optional: controls font display behavior
+    });
+    
+    export const SemiBold = localFont({
+      src: "fonts/FOT-Rodin Pro DB/FOT-Rodin Pro DB.otf", // Path relative to the file where localFont is called
+      display: "swap", // Optional: controls font display behavior
+    });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+    export const Header = localFont({
+      src: "fonts/FOT-Rodin Pro B/FOT-Rodin Pro B.otf", // Path relative to the file where localFont is called
+      display: "swap", // Optional: controls font display behavior
+    });
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,11 +32,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={Normal.className}>
         {children}
       </body>
     </html>
   );
 }
+
+
